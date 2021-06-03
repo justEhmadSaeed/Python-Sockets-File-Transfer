@@ -20,10 +20,13 @@ while True:
     con, addr = sock.accept()
     print('Connected with ', addr)
 
+    # Get data from the client
+    data = con.recv(1024)
+    print(data.decode())
     # Read File in binary
     file = open('server-file.txt', 'rb')
     line = file.read(1024)
-
+    # Keep sending data to the client
     while(line):
         con.send(line)
         line = file.read(1024)
