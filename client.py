@@ -1,0 +1,24 @@
+import socket
+
+# Initialize Socket Instance
+sock = socket.socket()
+print ("Socket created successfully.")
+
+# Defining port and host
+port = 8800
+host = 'localhost'
+
+# Connect socket to the host and port
+sock.connect((host, port))
+print('Connection Established.')
+
+# Write File in binary
+file = open('client-file.txt', 'wb')
+line = sock.recv(1024)
+while(line):
+    file.write(line)
+    line = sock.recv(1024)
+
+file.close()
+sock.close()
+print('Connection Closed.')

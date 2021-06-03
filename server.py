@@ -17,10 +17,8 @@ print('Socket is listening...')
 
 while True:
     # Establish connection with the clients.
-    con, address = sock.accept()
-    print('Connected with ', address)
-
-    data = con.recv(1024)
+    con, addr = sock.accept()
+    print('Connected with ', addr)
 
     # Read File in binary
     file = open('server-file.txt', 'rb')
