@@ -19,6 +19,8 @@ while(line):
     file.write(line)
     line = sock.recv(1024)
 
+print('File has been received successfully.')
+
 file.close()
 sock.close()
 print('Connection Closed.')
